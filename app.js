@@ -28,18 +28,18 @@ let shoppingCartItems = {};
 const products = 
 {
     animal: {
-            item: {info: "bla", price: 2},
-            item2: {info: "bla", price: 3}
+            itema: {info: "bla", price: 2},
+            itemb: {info: "bla", price: 3}
         },
     animal2: {
-            item: {info: "bla", price: 4},
-            item2: {info: "bla", price: 5}
+            itemc: {info: "bla", price: 4},
+            itemd: {info: "bla", price: 5}
         },
         animal3: {
                 item: {info: "bla", price: 3},
                 item2: {info: "blaaa", price: 2},
                 item3: {info: "blaasd", price: 5},
-                item4: {info: "bla", price: 5}
+                sas4: {info: "bla", price: 5}
             }
 }
 ;
@@ -55,9 +55,10 @@ function generateProducts() {
         console.log(animal + " <---- animal");
         Object.keys(products[animal]).forEach(item => { 
             productInfo = `
-            <div class="each-item"><h4>${item}</h4>
+            <div class="each-item ${animal}"><h4 class="item-name">${item}</h4>
             <p>${products[animal][item].info}</p>
-            <p>${products[animal][item].price}</p></div>`
+            <p>${products[animal][item].price}</p>
+            <button class="buy-btn">Köp</button></div>`
             console.log(item + " <----- item")
             console.log(products[animal][item].price)
             console.log(products[animal][item].info)
@@ -90,20 +91,38 @@ function addBuyEvent() {
 }
 
 function clickBuyBtn(event) {
-    let getAnimal = event.target.parentNode.getElementsByClassName("animal-name")[0].textContent;
-    animalsForSale.forEach(animal => {
-        if (animal.name === getAnimal) {
-            if (getAnimal in shoppingCartItems) {
-                shoppingCartItems[getAnimal].amount++;
-                showItemsInCart(shoppingCartItems)
-                numOfItemsInCart(shoppingCartItems)
-            } else {
-                shoppingCartItems[getAnimal] = { price: animal.price, amount: 1 }
-                // console.log("hej")
-                showItemsInCart(shoppingCartItems)
-                numOfItemsInCart(shoppingCartItems)
+    let getAnimal = event.target.parentElement.parentElement.getElementsByClassName("item-name")[0].textContent;
+    console.log(shoppingCartItems);
+    Object.keys(products).forEach(animal => {
+        Object.keys(products[animal]).forEach(item => {
+            // console.log(item + " sadasdasdsa")
+            if(getAnimal === item) {
+                if(shoppingCartItems.hasOwnProperty(item)) {
+                    shoppingCartItems[item].amount++;
+                    showItemsInCart(shoppingCartItems)
+                    numOfItemsInCart(shoppingCartItems)
+                }
+                else {
+                    shoppingCartItems[item] = { price: products[animal][item].price, amount: 1 }
+                    // console.log("hej")
+                    showItemsInCart(shoppingCartItems)
+                    numOfItemsInCart(shoppingCartItems)
+                }
             }
-        }
+           
+        })
+        // if (animal.name === getAnimal) {
+        //     if (getAnimal in shoppingCartItems) {
+        //         shoppingCartItems[getAnimal].amount++;
+        //         showItemsInCart(shoppingCartItems)
+        //         numOfItemsInCart(shoppingCartItems)
+        //     } else {
+        //         shoppingCartItems[getAnimal] = { price: animal.price, amount: 1 }
+        //         // console.log("hej")
+        //         showItemsInCart(shoppingCartItems)
+        //         numOfItemsInCart(shoppingCartItems)
+        //     }
+        // }
     })
 }
 

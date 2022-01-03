@@ -1,0 +1,838 @@
+*{
+    padding: 0px;
+    margin:  0px;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    background: lightgray;
+    display: grid;
+    grid-template: "header header header header " 10vh
+    /* ". . . . ." 3vh */
+    ". hero hero ." 80vh
+    /* ". . .  ." 3vh */
+    ". main main ." auto
+    ". contents contents  ." 35vh
+    /* ". . . . ." 3vh */
+    "footer footer footer footer" 10vh / 1fr 3fr 3fr 1fr;
+    grid-gap: 1em;
+}
+
+li {
+    margin: 5px;
+    list-style: none;
+}
+
+a {
+    margin: 5px;
+    cursor: pointer;
+    font-family:cursive;
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 300;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: header;
+    background-color: rgb(85, 49, 29);
+    color:antiquewhite;
+}
+
+
+#header-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header-company{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 1.2em;
+    color:antiquewhite;
+}
+
+.link:hover{
+    text-decoration: none;
+    font-size: 1.2em;
+    color:rgb(248, 191, 116);
+}
+
+.navbar ul{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    font-size: 1.2em;
+    color:antiquewhite;    
+}
+.navbar ul li a:hover,
+#footer-follow ul li a:hover{
+    text-decoration: none;
+    font-size: 1.2em;
+    color:rgb(248, 191, 116);
+    
+}
+
+#shop-wrapper{
+    width: 7em;
+    padding-top: 7em;
+    display: flex;
+    flex-wrap: wrap;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    color: rgb(85, 49, 29);
+    font-size: 1.2em;
+    border: 3px solid rgb(85, 49, 29);
+}
+
+#num-of-items{
+    width: 100%;
+}
+
+#shop-icon{    
+        height:2em;
+        width:8em;
+        top: 0;
+        border: 1px solid white;
+        font-family: cursive; 
+}
+
+#shop-icon:hover {
+        background: burlywood;
+        color: white;
+        border: 1px solid white;
+        cursor: pointer;
+}
+
+
+#shopping-cart {    
+    display: none;
+    flex-wrap: wrap;
+    
+}
+
+#products-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    grid-column: 1 / -1;
+}
+
+.item-wrapper{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto, 1fr);
+    grid-template-rows: repeat(auto, 10em);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-wrapper h3{
+    width: 100%;
+    grid-column: 1 / -1;
+}
+
+.item-wrapper h4{
+    grid-column: span 2;
+}
+
+.hero-info{
+    width: auto;
+}
+
+.hero-info-bunny{
+    width: auto;
+    text-align: left;
+    margin: 20px;
+    
+}
+
+.rodents-info{
+    margin: 20px;
+    text-align: left;
+}
+
+#reptiles-hero-wrapper {
+    grid-area: hero;
+    border: 1px solid black;
+    position: relative;
+    display: grid;
+    grid-template: "video1 content1" auto
+    "content2 video2" auto / 1fr 1fr;
+    grid-row-gap: 0.5em;
+    background: black;
+    font-family: sans-serif;
+}
+
+/* .reptiles-hero-overlay {
+    width: 100%;
+    height: 100%;
+} */
+
+.reptiles-hero-video1 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    grid-area: video1;
+}
+
+.video1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reptiles-hero-video2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    grid-area: video2;
+}
+
+.video2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reptiles-hero-content1,
+.reptiles-hero-content2 {
+    display: grid;
+    grid-template: "title" 20%
+    "content" 80%;
+}
+
+.reptiles-hero-content1 {
+    grid-area: content1;
+}
+
+.reptiles-hero-title {
+    font-size: 1.6em;
+    padding: 0.6em;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: gray;
+}
+
+.reptiles-hero-content {
+    background: whitesmoke;
+    padding: 0.6em;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.btn {
+    border: 1px solid black;
+    padding: 0.3em 0.5em;
+}
+
+.reptiles-hero-content2 {
+    grid-area: content2;
+}
+
+.main-content-reptiles {
+    border: 1px solid black;
+    grid-area: main;
+    display: grid;
+    grid-template: "food needs" / 1fr 1fr;
+    height: 25em;
+}
+
+.reptilian-food,
+.reptilian-needs {
+    height: 20%;
+    background: grey;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero-wrapper,
+#hero-wrapper-parrots {
+    grid-area: hero;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url(/pictures/841187-roda-ekorren-on-the-snow-fotona.jpg);
+    background-position: center;
+}
+
+#hero-wrapper-rodents{    
+    grid-area: hero;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.rodent-video{
+     position: relative;
+     width: 100%;     
+}
+
+#hero-wrapper-parrots{
+    background-image: url(../pictures/Parrots/man-holds-two-colorful-macaw-parrots-his-arm.jpg);
+    background-size: 100% 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#main-content-parrots{
+    grid-area: main;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-top: 2em;
+}
+
+#main-content-parrots h3{
+    width: 100%;
+}
+
+#main-content-parrots img{
+    height: 15em;
+    /* width: auto; */
+}
+.picture-row {    
+    flex: 24%;
+    padding: 2em 0.2em;
+}
+
+.picture-row img {
+    width: 100%;
+    height: 100%;
+}
+
+/* #sidebar {
+    width: 100%;
+    border: 1px solid black;
+    grid-area: sidebar;
+    background: antiquewhite;
+} */
+
+/* .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+} */
+
+#content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    grid-area: contents;
+    background: gray;
+}
+
+#rodent-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    grid-area: contents;
+    background: gray;
+    padding: 20px;
+}
+
+.content-title{
+    font-family:cursive;
+    font-size: 20px;
+    margin:10px;
+    display: flex;
+    justify-content: center;
+}
+
+.content-info{
+    display: flex;
+    justify-content:space-between;
+    
+}
+
+#hundvalpar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10em;
+    width: 10em;
+}
+
+#hundvalpar1 img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+    width: 8em;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+#hundvalpar1 img:hover{
+    transition: all .3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.dog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+    width: 8em;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+#kattungar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10em;
+    width: 10em;
+}
+#kattungar1 img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+    width: 8em;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+#kattungar1 img:hover{
+    transition: all .3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.kat{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+    width: 8em;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+#gnagare{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10em;
+    width: 10em;
+}
+
+#rat{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20em;
+    width: 20em;
+    margin-top: 30px;
+}
+
+#rat img{
+    border-radius: 30%;
+    border: 2px solid white;
+    max-width: 100vh;  
+    box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+}
+
+#bunny{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20em;
+    width: 20em;
+    position: relative;
+    bottom: 10px;
+    left: 30px;
+    bottom: 60px;
+    margin-top: 40px;
+}
+
+#bunny img {
+    border-radius: 30%;
+    border: 2px solid white;
+    height: 220px;
+    max-width: 100vh;
+    box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+}
+
+#hamster{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    height: 20em;
+    width: 20em;
+    position: relative;
+    left: 400px;
+    bottom: 60px;
+    margin-top: 40px;
+}
+
+#hamster img{
+    border-radius: 30%;
+    border: 2px solid white;
+    max-width: 100vh;
+    box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+}
+
+#guinea-pig{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    height: 20em;
+    width: 20em;
+    position: relative;
+    left: 300px;
+    bottom: 60px;
+    margin-top: 40px;
+}
+
+#guinea-pig img{
+    border-radius: 30%;
+    border: 2px solid white;
+    max-width: 100vh;
+    box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+}
+
+#reptiler1 img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+    width: 8em;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+#reptiler1 img:hover{
+    transition: all .3s ease-in-out;
+    transform: scale(1.1);
+}
+
+h3,
+h4{
+    text-align: center;
+    align-items: center;
+    margin:10px;
+}
+
+.mouse{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+    width: 8em;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+#papegojor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10em;
+    width: 10em;
+}
+#papegojor1 img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+    width: 8em;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+#papegojor1 img:hover{
+    transition: all .3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.bird{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+    width: 8em;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+#reptiler{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10em;
+    width: 10em;
+}
+
+.snake{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+    width: 8em;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+
+
+#hero-wrapper-hundvalpar {
+    grid-area: hero;
+    background-image: url(/pictures/hundvalpar/grouppsphoto.jpg);
+    background-position: center;
+}
+
+#hero-wrapper-hundvalpar-overlay{
+    grid-area: hero; 
+}
+
+#hero-wrapper-hundvalpar-overlay h1{
+    grid-area: hero;
+    display: flex;
+    justify-content:center;
+    font-family: cursive;
+    word-spacing: 50vh;
+}
+
+#hero-wrapper-hundvalpar-overlay h3{
+    grid-area: hero;
+    display: flex;
+    justify-content:center;
+    font-family: cursive;
+    word-spacing: 30vh;
+}
+
+#hero-wrapper-hundvalpar-overlay h2{
+    grid-area: hero;
+    display: flex;
+    justify-content:center;
+    font-family: cursive;
+    word-spacing: 40vh;
+}
+
+
+#puppies{
+    grid-area: main;
+}
+
+.hundvalpar-title{
+    font-family:cursive;
+    font-size: 30px;
+    margin:10px;
+    display: flex;
+    justify-content: center;
+}
+
+.hundvalpar-info{
+    display: flex;
+    justify-content:center;
+    grid-area: main;
+}
+
+#valp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+}
+
+.valpBild{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+#merOm{
+    height:2em;
+    width:8em;
+    margin: 2em;
+    border: 1px solid white;
+    font-family: cursive; 
+}
+
+#merOm:hover {
+    background: burlywood;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+#puppyInfo{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.2);
+    display:none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;   
+}
+
+#aboutPuppy{
+    width: 40%;
+    height: 60%;
+    border-radius: 10%;
+    background:rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding:40px;
+}
+
+.closeInfoBlock{
+    display: flex;
+}
+
+.closeInfoBlock:hover{
+    color: tomato;
+    cursor: pointer;
+}
+
+
+#hem{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 10em;
+    width: 10em;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+.kitten-td{
+
+}
+
+.kitten-tr{
+
+}
+
+.kitten-img{
+    max-height: 200px;
+    max-width: 300px;
+
+}
+
+#footer{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    grid-area: footer;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    background-image: url(/pictures/Wow-intresting.jpg);
+    background-position: center;  
+}
+
+#footer-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+#footer-adress{
+    width: 50%;
+    height:18vh;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer-adress p{
+    color:rgb(248, 214, 170);
+    margin-left: 40%;
+}
+
+#footer-follow{
+    height:18vh;
+    width: 50%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer-follow a{
+    font-size: 1.0em;
+    text-decoration: none;
+    color:rgb(248, 214, 170);
+    margin-left: 40%;
+    cursor: pointer;
+    font-weight: 300;  
+}
+
+#footer-follow a:hover{
+    font-size: 1.0em;
+    color:rgb(253, 182, 90);
+}

@@ -1,8 +1,3 @@
-$(function () {
-    $("#header").load("../Documents/header.html");
-    $("#footer").load("../Documents/footer.html");
-});
-
 
 let shoppingCartItems = {};
 
@@ -46,10 +41,7 @@ function generateProducts() {
             <div class="each-item id-${products[animal][item].id}"><h4 class="item-name">${item}</h4>
             <p>${products[animal][item].info}</p>
             <p>${products[animal][item].price}Kr</p>
-            <button class="buy-btn">Köp</button></div>`
-            console.log(item + " <----- item")
-            console.log(products[animal][item].price)
-            console.log(products[animal][item].info)
+            <button class="buy-btn">Köp</button></div>`            
             template += productInfo;
         })  
         template += `</div>`
@@ -75,8 +67,7 @@ function addBuyEvent() {
 }
 
 function clickBuyBtn(event) {
-    let getAnimal = event.target.parentElement.classList;
-    console.log(getAnimal);
+    let getAnimal = event.target.parentElement.classList;    
     Object.keys(products).forEach(animal => {
         Object.keys(products[animal]).forEach(item => {
             console.log(products[animal][item].id + " sadasdasdsa")
@@ -176,11 +167,7 @@ function removeFromCart(itemToRemove) {
     delete shoppingCartItems[itemToRemove];
     showItemsInCart(shoppingCartItems);
     numOfItemsInCart(shoppingCartItems);
-
 }
-
-
-
 
 function showShop() {    
     const shoppingCart = document.querySelector("#shopping-cart")
